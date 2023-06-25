@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd" version="2.0">
+
+    <entity class="com.example.hexagonalarchitecture.application.domain.entities.Client"
+            access="FIELD">
+        <table name="clients" />
+        <attributes>
+            <id name="id">
+                <generated-value />
+            </id>
+            <basic name="name">
+                <column name="name" length="255" nullable="false" />
+            </basic>
+            <embedded name="email"></embedded>
+            <embedded name="cpf"></embedded>
+        </attributes>
+    </entity>
+
+    <embeddable class="com.example.hexagonalarchitecture.application.domain.valueObjects.Name">
+        <attributes>
+            <basic name="value">
+                <column name="name" length="255" nullable="false" />
+            </basic>
+            <transient name="minSize" />
+            <transient name="maxSize" />
+            <transient name="minNumberOfWords" />
+            <transient name="maxNumberOfWords" />
+        </attributes>
+    </embeddable>
+
+    <embeddable class="com.example.hexagonalarchitecture.application.domain.valueObjects.Email">
+        <attributes>
+            <basic name="value">
+                <column name="email" length="255" nullable="false" />
+            </basic>
+        </attributes>
+    </embeddable>
+
+    <embeddable class="com.example.hexagonalarchitecture.application.domain.valueObjects.Cpf">
+        <attributes>
+            <basic name="value">
+                <column name="cpf" length="255" nullable="false" />
+            </basic>
+        </attributes>
+    </embeddable>
+
+</entity-mappings>
